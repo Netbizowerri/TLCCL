@@ -1,0 +1,29 @@
+<svg width="760" height="280" viewBox="0 0 760 280" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">The Learner Centered Consult Logo</title>
+  <desc id="desc">Two orange head silhouettes with learning and thinking symbols above the words The Learner Centered Consult.</desc>
+  <rect width="760" height="280" rx="28" fill="#FFF8ED"/>
+  <g filter="url(#shadow)">
+    <path d="M186 72C138 72 100 111 100 158v58h54v-29h30c18 0 32-14 32-32v-16h18c8 0 12-10 6-15l-22-18C210 86 200 72 186 72Z" fill="#F97316"/>
+    <path d="M146 122c0-25 20-45 45-45h13" stroke="#111827" stroke-width="9" stroke-linecap="round"/>
+    <path d="M138 126c41 0 73 5 112-5" stroke="#111827" stroke-width="9" stroke-linecap="round"/>
+    <circle cx="170" cy="142" r="20" fill="#FFF8ED" stroke="#111827" stroke-width="8"/>
+    <path d="M190 142h40" stroke="#111827" stroke-width="8" stroke-linecap="round"/>
+    <path d="M216 155h18" stroke="#111827" stroke-width="7" stroke-linecap="round"/>
+    <path d="M177 166v66" stroke="#111827" stroke-width="8" stroke-linecap="round"/>
+
+    <path d="M530 72c-48 0-86 39-86 86v58h118v-84h12c16 0 29-13 29-29V72h-73Z" fill="#F97316"/>
+    <circle cx="505" cy="118" r="12" fill="#FFF8ED"/>
+    <circle cx="544" cy="118" r="12" fill="#FFF8ED"/>
+    <circle cx="583" cy="118" r="12" fill="#FFF8ED"/>
+    <circle cx="525" cy="154" r="12" fill="#FFF8ED"/>
+    <circle cx="564" cy="154" r="12" fill="#FFF8ED"/>
+    <circle cx="544" cy="190" r="12" fill="#FFF8ED"/>
+  </g>
+  <text x="380" y="238" text-anchor="middle" font-family="Plus Jakarta Sans, Arial, sans-serif" font-size="38" font-weight="900" letter-spacing="2" fill="#111827">THE LEARNER</text>
+  <text x="380" y="272" text-anchor="middle" font-family="Plus Jakarta Sans, Arial, sans-serif" font-size="31" font-weight="900" letter-spacing="1.5" fill="#111827">CENTERED CONSULT</text>
+  <defs>
+    <filter id="shadow" x="80" y="52" width="540" height="200" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="12" stdDeviation="8" flood-color="#000000" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+</svg>
