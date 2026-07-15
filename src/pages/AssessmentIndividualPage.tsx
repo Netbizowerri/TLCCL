@@ -24,6 +24,7 @@ export default function AssessmentIndividualPage() {
       {/* 1. HERO */}
       <section className="bg-gradient-to-b from-brand-soft to-white py-16 md:py-24 border-b border-brand-soft">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+          {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-xs font-semibold text-text-muted">
             <Link to="/" className="hover:text-brand-primary transition-colors">Home</Link>
             <span>&rarr;</span>
@@ -60,7 +61,7 @@ export default function AssessmentIndividualPage() {
             className="relative h-56 sm:h-72 w-full rounded-4xl overflow-hidden shadow-xl border border-brand-muted mt-6"
           >
             <img
-              src="https://i.ibb.co/0psthjwL/Gemini-Generated-Image-gkd2argkd2argkd2.png"
+              src={img.assessmentCards[id as keyof typeof img.assessmentCards] || img.assessment}
               alt={data.title}
               className="absolute inset-0 w-full h-full object-cover"
               loading="eager"
@@ -116,7 +117,7 @@ export default function AssessmentIndividualPage() {
         </div>
       </section>
 
-      {/* 4. WHO SHOULD BE ASSESSED */}
+      {/* 3. WHO SHOULD BE ASSESSED */}
       <section className="py-16 bg-surface-alt">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-4xl p-8 md:p-12 border border-brand-soft/80 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -143,7 +144,7 @@ export default function AssessmentIndividualPage() {
         </div>
       </section>
 
-      {/* 5. WHAT YOU RECEIVE */}
+      {/* 4. WHAT YOU RECEIVE */}
       <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <div className="text-center max-w-2xl mx-auto space-y-2">
           <h2 className="font-display text-2xl sm:text-3xl font-bold text-surface-dark">What You Receive</h2>
@@ -168,7 +169,7 @@ export default function AssessmentIndividualPage() {
         </div>
       </section>
 
-      {/* 6. FAQ */}
+      {/* 5. FAQ */}
       <section className="py-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <h2 className="font-display text-2xl sm:text-3xl font-bold text-surface-dark text-center">Assessment Frequently Asked Questions</h2>
         
@@ -205,7 +206,7 @@ export default function AssessmentIndividualPage() {
         </div>
       </section>
 
-      {/* 7. CTA */}
+      {/* 6. CTA */}
       <section className="py-20 bg-surface-warm border-t border-amber-100 text-center space-y-6">
         <h2 className="font-display text-3xl sm:text-4xl font-black text-surface-dark">
           Book Your {data.title} Block

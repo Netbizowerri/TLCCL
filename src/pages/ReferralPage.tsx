@@ -43,7 +43,6 @@ export default function ReferralPage() {
     if (!validate()) return;
 
     startTransition(async () => {
-      // Simulate Formspree + Privyr Webhook process
       await new Promise((resolve) => setTimeout(resolve, 1500));
       setSubmitted(true);
     });
@@ -240,7 +239,7 @@ export default function ReferralPage() {
                     className="h-5 w-5 rounded border-brand-muted text-brand-primary focus:ring-brand-primary shrink-0 mt-0.5"
                   />
                   <span className="text-xs font-semibold text-text-soft leading-relaxed group-hover:text-surface-dark transition-colors">
-                    I confirm that the parents/guardians are aware of this referral and have authorized me to share their contact details and developmental parameters with The Learner Centered Consult Limited.
+                    I confirm that the parents/guardians are aware of this referral and have authorized me to share their contact details and developmental parameters with The Learner Centered Consult (LCC).
                   </span>
                 </label>
                 {errors.consent && <p className="text-red-500 text-[10px] font-bold">{errors.consent}</p>}

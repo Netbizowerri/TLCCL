@@ -52,19 +52,7 @@ export default function ConditionIndividualPage() {
             className="relative h-56 sm:h-72 w-full rounded-4xl overflow-hidden shadow-xl border border-brand-muted mt-6"
           >
             <img
-              src={data.id === "autism"
-                ? "https://i.ibb.co/Y7qwwLND/Untitled-design-3.jpg"
-                : data.id === "adhd"
-                ? "https://i.ibb.co/BKnDGhVH/Gemini-Generated-Image-k9mobjk9mobjk9mo.png"
-                : data.id === "intellectual-disabilities"
-                ? "https://i.ibb.co/fG9k18FG/Gemini-Generated-Image-rum0gjrum0gjrum0.png"
-                : data.id === "global-developmental-delay"
-                ? "https://i.ibb.co/FkH4SL7v/Gemini-Generated-Image-8zt8n88zt8n88zt8.png"
-                : data.id === "speech-difficulties"
-                ? "https://i.ibb.co/ZR2562tn/Gemini-Generated-Image-b3qgunb3qgunb3qg.png"
-                : data.id === "learning-behavioural"
-                ? "https://i.ibb.co/m56mzyk2/Gemini-Generated-Image-u7hyenu7hyenu7hy.png"
-                : img.conditions[data.id as keyof typeof img.conditions]}
+              src={img.conditions[data.id as keyof typeof img.conditions]}
               alt={data.title}
               className="absolute inset-0 w-full h-full object-cover"
               loading="eager"
@@ -122,7 +110,7 @@ export default function ConditionIndividualPage() {
         </div>
       </section>
 
-      {/* 4. HOW BRIGHTPATH HELPS (SERVICE CARDS) */}
+      {/* 4. HOW LCC HELPS (SERVICE CARDS) */}
       <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <div className="text-left space-y-2 max-w-2xl">
           <h3 className="font-display text-2xl font-bold text-surface-dark">How We Support Your Child</h3>

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Sparkles, Brain, Heart, Shield, Smile, Zap, ArrowRight } from "lucide-react";
 import { img } from "../data/images";
+import { conditionsSupported } from "../data/siteData";
 
 export default function ConditionsOverview() {
   const conditions = [
@@ -14,7 +15,7 @@ export default function ConditionsOverview() {
     },
     {
       id: "adhd",
-      title: "ADHD Support",
+      title: "ADHD (Attention-Deficit/Hyperactivity Disorder)",
       desc: "Helping children manage executive control, build task-focus habits, and channel high physical energy.",
       icon: Zap,
       iconColor: "text-brand-accent",
@@ -28,7 +29,7 @@ export default function ConditionsOverview() {
     },
     {
       id: "global-developmental-delay",
-      title: "Global Developmental Delay",
+      title: "Global Developmental Delay (GDD)",
       desc: "Providing active developmental evaluations to target multiple delayed milestones quickly.",
       icon: Smile,
       iconColor: "text-brand-secondary",
@@ -84,7 +85,7 @@ export default function ConditionsOverview() {
       <section className="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {conditions.map((item, idx) => {
-            const Icon = item.icon;
+            const data = conditionsSupported[item.id];
             return (
               <motion.div
                 key={item.id}
@@ -96,14 +97,14 @@ export default function ConditionsOverview() {
               >
                 <div className="relative h-44 overflow-hidden">
                   <img
-                    src={img.conditions[item.id as keyof typeof img.conditions]}
+                    src={data ? img.conditions[item.id as keyof typeof img.conditions] : img.conditions.autism}
                     alt={item.title}
                     className="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-surface-dark/45 to-transparent" />
                   <div className={`absolute top-3 left-3 h-11 w-11 rounded-2xl bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-md ${item.iconColor}`}>
-                    <Icon className="h-5 w-5" />
+                    <item.icon className="h-5 w-5" />
                   </div>
                 </div>
                 <div className="p-6 flex flex-col justify-between gap-4 flex-grow">
@@ -119,9 +120,9 @@ export default function ConditionsOverview() {
                   >
                     View Empathetic Guidelines
                     <ArrowRight className="h-3 w-3 group-hover/link:translate-x-1 transition-transform" />
-                  </Link>
-                </div>
-              </motion.div>
+</Link>
+                  </div>
+                </motion.div>
             );
           })}
         </div>

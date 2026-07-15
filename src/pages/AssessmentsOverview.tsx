@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ClipboardList, ArrowRight, Eye, Calendar, Sparkles, Star } from "lucide-react";
 import { img } from "../data/images";
+import { assessmentPrograms } from "../data/siteData";
 
 export default function AssessmentsOverview() {
   const assessments = [
@@ -13,6 +14,13 @@ export default function AssessmentsOverview() {
       targetAge: "6 months to 6 years",
     },
     {
+      id: "psychoeducational",
+      title: "Psychoeducational Assessment",
+      desc: "In-depth evaluation of learning, cognition, and academic achievement for specific learning disability identification.",
+      duration: "3-4 sessions (2 hrs each)",
+      targetAge: "6 years to young adulthood",
+    },
+    {
       id: "behavioural",
       title: "Behavioural Assessment",
       desc: "Functional behavior evaluation (FBA) decoding emotional triggers, sensory overload, and escape motivations.",
@@ -20,18 +28,32 @@ export default function AssessmentsOverview() {
       targetAge: "3 to 16 years",
     },
     {
+      id: "fba",
+      title: "Functional Behaviour Assessment (FBA)",
+      desc: "Systematic analysis to understand the function of challenging behaviour through controlled observation.",
+      duration: "2-4 weeks (multiple observations)",
+      targetAge: "3 to 18 years",
+    },
+    {
+      id: "functional",
+      title: "Functional Analysis",
+      desc: "Experimental verification of behaviour function under controlled conditions for precise intervention design.",
+      duration: "1-2 days (controlled sessions)",
+      targetAge: "5 to 18 years",
+    },
+    {
       id: "communication",
-      title: "Communication & Speech Assessment",
+      title: "Speech & Language Assessment",
       desc: "Detailed evaluation of speech articulation, language structures, conversational social rules, and AAC setups.",
       duration: "1 session (2 hrs)",
       targetAge: "12 months to 18 years",
     },
     {
-      id: "functional",
-      title: "Functional & Adaptive Assessment",
-      desc: "Evaluation of vital self-care, hygiene, grooming, and safety skills required for classroom and household independence.",
-      duration: "2 sessions (1 hr each)",
-      targetAge: "4 to 18 years",
+      id: "occupational",
+      title: "Occupational Therapy Assessment",
+      desc: "Evaluation of motor skills, sensory processing, and functional daily living skills for independence.",
+      duration: "2 sessions (1.5 hrs each)",
+      targetAge: "2 to 18 years",
     },
   ];
 
@@ -68,56 +90,59 @@ export default function AssessmentsOverview() {
 
       {/* Assessments Grid */}
       <section className="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {assessments.map((item, idx) => (
-            <motion.div
-              key={item.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.05 }}
-              className="bg-white border border-brand-soft rounded-4xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col sm:flex-row"
-            >
-              <div className="relative sm:w-2/5 min-h-[180px] overflow-hidden">
-                <img
-                  src={img.assessmentCards[item.id as keyof typeof img.assessmentCards]}
-                  alt={item.title}
-                  className="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                />
-                <div className="absolute top-3 left-3 h-11 w-11 rounded-2xl bg-white/90 backdrop-blur-sm flex items-center justify-center text-brand-primary shadow-md">
-                  <ClipboardList className="h-5 w-5" />
-                </div>
-              </div>
-              <div className="sm:w-3/5 p-8 flex flex-col justify-between gap-6">
-                <div className="space-y-4">
-                  <div className="flex flex-wrap gap-2">
-                    <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-slate-100 text-text-soft">
-                      {item.duration}
-                    </span>
-                    <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-brand-soft text-brand-primary">
-                      Age: {item.targetAge}
-                    </span>
-                  </div>
-                  <div className="space-y-2">
-                    <h3 className="font-display text-xl sm:text-2xl font-bold text-surface-dark">
-                      {item.title}
-                    </h3>
-                    <p className="text-text-soft text-sm leading-relaxed font-medium">
-                      {item.desc}
-                    </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {assessments.map((item, idx) => {
+            const data = assessmentPrograms[item.id];
+            return (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.05 }}
+                className="bg-white border border-brand-soft rounded-4xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col"
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={data ? (img.assessmentCards[item.id as keyof typeof img.assessmentCards] || img.assessment) : img.assessment}
+                    alt={item.title}
+                    className="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute top-3 left-3 h-11 w-11 rounded-2xl bg-white/90 backdrop-blur-sm flex items-center justify-center text-brand-primary shadow-md">
+                    <ClipboardList className="h-5 w-5" />
                   </div>
                 </div>
-                <Link
-                  to={`/services/assessments/${item.id}`}
-                  className="inline-flex items-center gap-1.5 bg-brand-primary hover:bg-brand-primary/90 text-white font-bold text-sm px-5 py-3 rounded-2xl shadow-md transition-all w-fit"
-                >
-                  View Assessment Process
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-              </div>
-            </motion.div>
-          ))}
+                <div className="p-8 flex flex-col justify-between gap-6 flex-grow">
+                  <div className="space-y-4">
+                    <div className="flex flex-wrap gap-2">
+                      <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-slate-100 text-text-soft">
+                        {item.duration}
+                      </span>
+                      <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-brand-soft text-brand-primary">
+                        Age: {item.targetAge}
+                      </span>
+                    </div>
+                    <div className="space-y-2">
+                      <h3 className="font-display text-xl sm:text-2xl font-bold text-surface-dark">
+                        {item.title}
+                      </h3>
+                      <p className="text-text-soft text-sm leading-relaxed font-medium">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                  <Link
+                    to={`/services/assessments/${item.id}`}
+                    className="inline-flex items-center gap-1.5 bg-brand-primary hover:bg-brand-primary/90 text-white font-bold text-sm px-5 py-3 rounded-2xl shadow-md transition-all w-full justify-center"
+                  >
+                    View Assessment Process
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </section>
 

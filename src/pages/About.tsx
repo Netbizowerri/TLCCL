@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ShieldCheck, Heart, Users, Sparkles, Quote, Award } from "lucide-react";
+import { ShieldCheck, Heart, Users, Sparkles, Quote, Award, BookOpen, Target } from "lucide-react";
 import { img } from "../data/images";
+import { coreValues, processSteps } from "../data/siteData";
 
 export default function About() {
   const pillars = [
@@ -71,7 +72,7 @@ export default function About() {
             transition={{ delay: 0.2 }}
             className="text-white/80 text-base sm:text-lg md:text-xl font-medium max-w-2xl mx-auto"
           >
-            The Learner Centered Consult Limited was built on a simple, powerful promise: to provide world-class, scientifically grounded, and warm-hearted developmental support.
+            The Learner Centered Consult (LCC) was built on a simple, powerful promise: to provide world-class, scientifically grounded, and warm-hearted developmental support.
           </motion.p>
         </div>
       </section>
@@ -90,7 +91,7 @@ export default function About() {
             </div>
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-surface-dark">Our Mission</h2>
             <p className="text-text-soft text-base leading-relaxed font-medium">
-              To systematically champion every child&apos;s developmental potential by delivering evidence-based therapies, assessments, and community coaching. We measure our success solely in clinical quality and the long-term milestones achieved by the families we serve.
+              To improve the lives of children and families through evidence-based intervention and accessible support.
             </p>
           </motion.div>
 
@@ -105,7 +106,7 @@ export default function About() {
             </div>
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-surface-dark">Our Vision</h2>
             <p className="text-text-soft text-base leading-relaxed font-medium">
-              To build a society where neurodiversity is fully understood, supported, and integrated — where every family has access to compassionate, multi-disciplinary experts and clear milestone pathways.
+              To transform lives by unlocking every child's potential and creating opportunities for them to thrive.
             </p>
           </motion.div>
         </div>
@@ -126,7 +127,7 @@ export default function About() {
           </div>
           <div className="font-display text-lg sm:text-xl text-text-soft leading-relaxed italic space-y-6">
             <p>
-              &ldquo;The Learner Centered Consult Limited was founded out of a shared frustration. As therapy practitioners and educators in West Africa, we witnessed parents searching frantically for answers — receiving conflicting advice and feeling isolated under the weight of developmental diagnoses.&rdquo;
+              &ldquo;The Learner Centered Consult (LCC) was founded out of a shared frustration. As therapy practitioners and educators, we witnessed parents searching frantically for answers &mdash; receiving conflicting advice and feeling isolated under the weight of developmental diagnoses.&rdquo;
             </p>
             <p>
               &ldquo;We realized that child development cannot be treated in silos. An occupational therapist must collaborate with a speech pathologist; a behavior analyst must support the classroom teacher; and parents must be given the actual tools to lead. We created this consult as that collaborative, warm, and highly clinical circle of care.&rdquo;
@@ -135,36 +136,53 @@ export default function About() {
         </div>
       </section>
 
-      {/* 4. OUR APPROACH (4 PILLARS) */}
+      {/* 4. OUR PROCESS */}
       <section className="py-20 md:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <h2 className="font-display text-3xl sm:text-4xl font-bold text-surface-dark">Our Core Approach</h2>
+          <h2 className="font-display text-3xl sm:text-4xl font-bold text-surface-dark">Our Process</h2>
           <p className="text-text-soft text-base sm:text-lg font-medium">
-            At The Learner Centered Consult Limited, our therapy and consultation structures rest on four fundamental, clinical values.
+            We walk hand-in-hand with your family through every developmental phase of clinical and home intervention.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {pillars.map((item, idx) => {
-            const Icon = item.icon;
-            return (
-              <div key={idx} className="bg-white rounded-3xl border border-brand-soft p-6 shadow-sm flex flex-col justify-between">
-                <div className="space-y-4">
-                  <div className={`h-11 w-11 rounded-xl bg-brand-soft flex items-center justify-center ${item.color}`}>
-                    <Icon className="h-5 w-5" />
-                  </div>
-                  <h3 className="font-display text-lg font-bold text-surface-dark">{item.title}</h3>
-                  <p className="text-text-soft text-sm font-medium leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-8">
+          {processSteps.map((step, idx) => (
+            <div key={idx} className="flex flex-col items-center sm:items-start text-center sm:text-left space-y-4">
+              <div className="h-12 w-12 rounded-full bg-brand-teal text-white flex items-center justify-center font-display text-lg font-bold shadow-md shadow-brand-teal/20 relative">
+                {step.step}
               </div>
-            );
-          })}
+              <div className="space-y-1.5">
+                <h3 className="font-display text-lg font-bold text-surface-dark">{step.title}</h3>
+                <p className="text-text-soft text-sm font-medium leading-relaxed px-4 sm:px-0">
+                  {step.description}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* 5. WHAT WE BELIEVE (PULL-QUOTE) */}
+      {/* 5. CORE VALUES */}
+      <section className="py-20 bg-surface-alt">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <h2 className="font-display text-3xl sm:text-4xl font-bold text-surface-dark">Our Core Values</h2>
+            <p className="text-text-soft text-base sm:text-lg font-medium">
+              The principles that guide every decision, interaction, and intervention at LCC.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {coreValues.map((value, idx) => (
+              <div key={idx} className="bg-white border border-brand-soft rounded-2xl p-5 shadow-sm text-center">
+                <p className="font-bold text-sm text-surface-dark">{value}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 6. WHAT WE BELIEVE (PULL-QUOTE) */}
       <section className="py-20 bg-surface-warm border-y border-amber-100">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
           <Quote className="h-12 w-12 text-brand-accent mx-auto" />
@@ -172,12 +190,12 @@ export default function About() {
             &ldquo;We don&apos;t look at diagnoses as limitations. We look at them as roadmaps to unlock your child&apos;s innate gifts.&rdquo;
           </h3>
           <p className="text-brand-teal text-sm uppercase tracking-widest font-black">
-            — The Clinical Team
+            &mdash; The Clinical Team
           </p>
         </div>
       </section>
 
-      {/* 6. OUR TEAM CTA */}
+      {/* 7. OUR TEAM CTA */}
       <section className="py-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
         <h2 className="font-display text-3xl sm:text-4xl font-bold text-surface-dark">Guided by Certified Experts</h2>
         <p className="text-text-soft text-base sm:text-lg font-medium max-w-xl mx-auto">
@@ -193,7 +211,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* 7. ACCREDITATIONS / PARTNERS */}
+      {/* 8. ACCREDITATIONS / PARTNERS */}
       <section className="py-16 bg-surface-alt">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
           <h3 className="text-xs uppercase tracking-widest font-bold text-text-muted">Our Affiliates & Working Partners</h3>
@@ -208,7 +226,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* 8. CTA */}
+      {/* 9. CTA */}
       <section className="py-20 bg-white max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
         <h2 className="font-display text-3xl sm:text-4xl font-black text-surface-dark">Ready to Coordinate Your Child&apos;s Care?</h2>
         <p className="text-text-soft text-base max-w-xl mx-auto">

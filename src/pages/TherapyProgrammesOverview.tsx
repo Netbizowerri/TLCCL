@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Heart, Brain, Shield, Smile, Sparkles, Users, ArrowRight, ShieldCheck } from "lucide-react";
+import { Heart, Brain, Shield, Smile, Sparkles, BookOpen, Calendar, Users, Zap, ArrowRight } from "lucide-react";
 import { img } from "../data/images";
+import { therapyPrograms } from "../data/siteData";
 
 export default function TherapyProgrammesOverview() {
   const programmes = [
@@ -21,7 +22,7 @@ export default function TherapyProgrammesOverview() {
     },
     {
       id: "occupational",
-      title: "Occupational Therapy (OT)",
+      title: "Occupational Therapy",
       desc: "Nurturing fine/gross motor skills, posture, handwriting, and sensory integration control.",
       icon: Shield,
       iconColor: "text-brand-accent",
@@ -41,11 +42,39 @@ export default function TherapyProgrammesOverview() {
       iconColor: "text-indigo-500",
     },
     {
-      id: "social-skills",
-      title: "Social Skills Development",
-      desc: "Small-group workshops focusing on turn-taking, reading social cues, and active school peer friendships.",
+      id: "special",
+      title: "Special Education",
+      desc: "Individualized academic instruction for diverse learning needs using evidence-based methods.",
+      icon: BookOpen,
+      iconColor: "text-purple-600",
+    },
+    {
+      id: "early",
+      title: "Early Intervention",
+      desc: "Critical developmental support during the most neuroplastic years (birth to age 5).",
+      icon: Calendar,
+      iconColor: "text-brand-secondary",
+    },
+    {
+      id: "readiness",
+      title: "School Readiness Programme",
+      desc: "Preparing children for confident classroom transitions with academic and social foundations.",
       icon: Users,
       iconColor: "text-pink-500",
+    },
+    {
+      id: "social",
+      title: "Social Skills Training",
+      desc: "Small-group workshops focusing on turn-taking, reading social cues, and active peer friendships.",
+      icon: Users,
+      iconColor: "text-rose-500",
+    },
+    {
+      id: "executive",
+      title: "Executive Function Coaching",
+      desc: "Developing planning, organization, and self-management skills for academic success.",
+      icon: Zap,
+      iconColor: "text-amber-500",
     },
   ];
 
@@ -82,9 +111,9 @@ export default function TherapyProgrammesOverview() {
 
       {/* 2. PROGRAMMES GRID */}
       <section className="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {programmes.map((p, idx) => {
-            const Icon = p.icon;
+            const data = therapyPrograms[p.id];
             return (
               <motion.div
                 key={p.id}
@@ -96,14 +125,14 @@ export default function TherapyProgrammesOverview() {
               >
                 <div className="relative h-44 overflow-hidden">
                   <img
-                    src={img.therapy[p.id as keyof typeof img.therapy]}
+                    src={img.therapy[p.id as keyof typeof img.therapy] || img.therapy.aba}
                     alt={p.title}
                     className="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-surface-dark/40 to-transparent" />
                   <div className={`absolute top-3 left-3 h-11 w-11 rounded-2xl bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-md ${p.iconColor}`}>
-                    <Icon className="h-5 w-5" />
+                    <p.icon className="h-5 w-5" />
                   </div>
                 </div>
                 <div className="p-6 pt-0 space-y-3 flex flex-col flex-grow justify-between">
@@ -114,16 +143,16 @@ export default function TherapyProgrammesOverview() {
                     </p>
                   </div>
                   <div className="pt-4">
-                    {p.id === "social-skills" ? (
-                      <span className="text-xs font-semibold text-text-muted italic">Integrated into general therapy plans</span>
-                    ) : (
+                    {data ? (
                       <Link
                         to={`/services/therapy-programmes/${p.id}`}
                         className="text-xs font-bold text-brand-primary hover:text-brand-secondary flex items-center gap-1 group/link"
                       >
-                        View Details &amp; Schedule
+                        View Details & Schedule
                         <ArrowRight className="h-3 w-3 group-hover/link:translate-x-1 transition-transform" />
                       </Link>
+                    ) : (
+                      <span className="text-xs font-semibold text-text-muted italic">Coming Soon</span>
                     )}
                   </div>
                 </div>
@@ -182,7 +211,7 @@ export default function TherapyProgrammesOverview() {
           <div className="lg:col-span-8 space-y-4">
             <h3 className="font-display text-2xl sm:text-3xl font-bold text-surface-dark">Our Scientific Commitment</h3>
             <p className="text-text-soft text-sm sm:text-base font-medium leading-relaxed">
-              At The Learner Centered Consult Limited, we reject fads. We understand parents are overwhelmed by competing claims. Every technique, sensor kit, and behavioral schedule we implement holds verified peer-reviewed support in international journals of developmental psychology. We prioritize safety, neurodiversity-affirmation, and the child&apos;s dignity above all.
+              At The Learner Centered Consult (LCC), we reject fads. We understand parents are overwhelmed by competing claims. Every technique, sensor kit, and behavioral schedule we implement holds verified peer-reviewed support in international journals of developmental psychology. We prioritize safety, neurodiversity-affirmation, and the child&apos;s dignity above all.
             </p>
           </div>
         </div>

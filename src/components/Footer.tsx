@@ -10,10 +10,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand Info */}
           <div className="space-y-4">
-            <Link to="/" className="inline-flex items-center group" aria-label="The Learner Centered Consult Limited home">
+            <Link to="/" className="inline-flex items-center group" aria-label="The Learner Centered Consult home">
               <img
                 src="https://i.ibb.co/SXwpHm2C/The-Learner-Centered-Consult.png"
-                alt="The Learner Centered Consult Limited logo"
+                alt="The Learner Centered Consult logo"
                 width={240}
                 height={60}
                 className="rounded-2xl bg-white/95 p-1.5 object-contain transition-transform duration-300 group-hover:scale-[1.02]"
@@ -42,8 +42,21 @@ export default function Footer() {
                   About Us
                 </Link>
               </li>
-
-
+              <li>
+                <Link to="/services" className="text-sm text-text-muted hover:text-white transition-colors">
+                  Our Services
+                </Link>
+              </li>
+              <li>
+                <Link to="/conditions" className="text-sm text-text-muted hover:text-white transition-colors">
+                  Conditions We Support
+                </Link>
+              </li>
+              <li>
+                <Link to="/resources" className="text-sm text-text-muted hover:text-white transition-colors">
+                  Parent Resources
+                </Link>
+              </li>
               <li>
                 <Link to="/faq" className="text-sm text-text-muted hover:text-white transition-colors">
                   Frequently Asked Questions
@@ -63,7 +76,7 @@ export default function Footer() {
             <ul className="space-y-2.5">
               <li>
                 <Link to="/services/therapy-programmes" className="text-sm text-text-muted hover:text-white transition-colors">
-                  Therapy Programmes Overview
+                  Therapy Programmes
                 </Link>
               </li>
               <li>
@@ -89,6 +102,11 @@ export default function Footer() {
               <li>
                 <Link to="/services/training" className="text-sm text-text-muted hover:text-white transition-colors">
                   Caregiver & School Training
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/educational" className="text-sm text-text-muted hover:text-white transition-colors">
+                  School Consultation
                 </Link>
               </li>
             </ul>
@@ -126,7 +144,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left text-xs text-text-muted">
           <div>
-            &copy; {currentYear} The Learner Centered Consult Limited. All rights reserved.
+            &copy; {currentYear} The Learner Centered Consult (LCC). All rights reserved.
           </div>
           <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
             <Link to="/privacy-policy" className="hover:text-white transition-colors">

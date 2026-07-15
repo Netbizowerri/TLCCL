@@ -1,7 +1,7 @@
 import { useState, useTransition } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, ArrowLeft, ArrowRight, Heart, ClipboardList, GraduationCap, HelpCircle, AlertCircle } from "lucide-react";
+import { Check, ArrowLeft, ArrowRight, Heart, ClipboardList, GraduationCap, HelpCircle, AlertCircle, BookOpen, Users, Briefcase } from "lucide-react";
 
 interface FormState {
   service: string;
@@ -33,16 +33,15 @@ interface FormState {
 export default function BookingPage() {
   const [searchParams] = useSearchParams();
   const [step, setStep] = useState(1);
-  const [direction, setDirection] = useState(1); // 1 = forward, -1 = backward
+  const [direction, setDirection] = useState(1);
   const [isPending, startTransition] = useTransition();
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  // Read URL query params to pre-select items
   const initialService = searchParams.get("service") || "";
   const initialType = searchParams.get("type") || "";
 
   const [formData, setFormData] = useState<FormState>({
-    service: initialService === "therapy" ? "Therapy Programme" : initialService === "assessment" ? "Assessment" : initialService === "training" ? "Training" : "",
+    service: initialService === "therapy" ? "Therapy Programme" : initialService === "assessment" ? "Assessment" : initialService === "training" ? "Training" : initialService === "educational" ? "Educational Services" : initialService === "parent" ? "Parent & Family Services" : initialService === "professional" ? "Professional Services" : "",
     subService: initialType,
     childName: "",
     childDob: "",
@@ -68,11 +67,9 @@ export default function BookingPage() {
     consent: false,
   });
 
-  // Track validation errors
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [touched, setTouched] = useState<Record<string, boolean>>({});
 
-  // Inline Validation
   const validateField = (name: keyof FormState, value: any) => {
     let err = "";
     if (name === "service" && !value) err = "Please select a service category.";
@@ -108,9 +105,7 @@ export default function BookingPage() {
     }
   };
 
-  // Step Navigations
   const nextStep = () => {
-    // Validate current step
     let isValid = true;
     if (step === 1) {
       isValid = validateField("service", formData.service);
@@ -150,7 +145,6 @@ export default function BookingPage() {
     }
 
     startTransition(async () => {
-      // Simulate Formspree Endpoint / Privyr CRM Webhook capture
       await new Promise((resolve) => setTimeout(resolve, 1500));
       setIsSubmitted(true);
     });
@@ -165,7 +159,6 @@ export default function BookingPage() {
     }
   };
 
-  // Slide Animation Configurations
   const slideVariants = {
     enter: (dir: number) => ({
       x: dir > 0 ? 100 : -100,
@@ -195,7 +188,7 @@ export default function BookingPage() {
                   {step === 1 && "Service Selection"}
                   {step === 2 && "About your Child"}
                   {step === 3 && "Contact Details"}
-                  {step === 4 && "Appointment preferences"}
+                  {step === 4 && "Appointment Preferences"}
                   {step === 5 && "Review & Submit"}
                 </span>
               </div>
@@ -293,10 +286,12 @@ export default function BookingPage() {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                       {[
-                        { title: "Therapy Programme", icon: Heart, desc: "ABA, speech, motor coordination, or cognitive therapies." },
-                        { title: "Assessment", icon: ClipboardList, desc: "Milestones testing or Functional Behaviour Evaluations." },
-                        { title: "Training", icon: GraduationCap, desc: "Workshops for parents, educators, or clinicians." },
-                        { title: "General Enquiry / Not Sure", icon: HelpCircle, desc: "Undecided developmental discussions." },
+                        { title: "Assessment Services", icon: ClipboardList, desc: "Developmental, psychoeducational, behavioural, speech & language, OT assessments." },
+                        { title: "Therapy Services", icon: Heart, desc: "ABA, speech, occupational, special education, early intervention, and more." },
+                        { title: "Educational Services", icon: BookOpen, desc: "School consultation, IEP planning, academic intervention, transition planning." },
+                        { title: "Parent & Family Services", icon: Users, desc: "Parent coaching, behaviour consultation, home-based support, caregiver training." },
+                        { title: "Professional Services", icon: Briefcase, desc: "Staff training, mentorship, supervision, workshops, CPD for professionals." },
+                        { title: "General Enquiry / Not Sure", icon: HelpCircle, desc: "Undecided developmental discussions or general questions." },
                       ].map((item) => {
                         const Icon = item.icon;
                         const isSelected = formData.service === item.title;
@@ -333,7 +328,27 @@ export default function BookingPage() {
                     )}
 
                     {/* Subservice Selectors */}
-                    {formData.service === "Therapy Programme" && (
+                    {formData.service === "Assessment Services" && (
+                      <div className="space-y-2 pt-2">
+                        <label className="block text-xs font-bold uppercase tracking-wider text-text-soft">Select Assessment Type</label>
+                        <select
+                          value={formData.subService}
+                          onChange={(e) => handleChange("subService", e.target.value)}
+                          className="w-full bg-white border border-brand-muted px-4 py-3 rounded-2xl text-sm font-semibold text-text-soft focus:border-brand-primary outline-none"
+                        >
+                          <option value="">-- Choose an Evaluation --</option>
+                          <option value="developmental">Developmental Assessment</option>
+                          <option value="psychoeducational">Psychoeducational Assessment</option>
+                          <option value="behavioural">Behavioural Assessment</option>
+                          <option value="fba">Functional Behaviour Assessment (FBA)</option>
+                          <option value="functional">Functional Analysis</option>
+                          <option value="communication">Speech & Language Assessment</option>
+                          <option value="occupational">Occupational Therapy Assessment</option>
+                        </select>
+                      </div>
+                    )}
+
+                    {formData.service === "Therapy Services" && (
                       <div className="space-y-2 pt-2">
                         <label className="block text-xs font-bold uppercase tracking-wider text-text-soft">Select Therapy Type</label>
                         <select
@@ -345,42 +360,82 @@ export default function BookingPage() {
                           <option value="aba">Applied Behaviour Analysis (ABA)</option>
                           <option value="speech">Speech & Language Therapy</option>
                           <option value="occupational">Occupational Therapy</option>
+                          <option value="special">Special Education</option>
+                          <option value="early">Early Intervention</option>
+                          <option value="readiness">School Readiness Programme</option>
+                          <option value="social">Social Skills Training</option>
+                          <option value="executive">Executive Function Coaching</option>
                           <option value="behavioural">Behavioural Intervention</option>
                           <option value="cognitive">Cognitive Development</option>
                         </select>
                       </div>
                     )}
 
-                    {formData.service === "Assessment" && (
+                    {formData.service === "Educational Services" && (
                       <div className="space-y-2 pt-2">
-                        <label className="block text-xs font-bold uppercase tracking-wider text-text-soft">Select Assessment Type</label>
+                        <label className="block text-xs font-bold uppercase tracking-wider text-text-soft">Select Educational Service</label>
                         <select
                           value={formData.subService}
                           onChange={(e) => handleChange("subService", e.target.value)}
                           className="w-full bg-white border border-brand-muted px-4 py-3 rounded-2xl text-sm font-semibold text-text-soft focus:border-brand-primary outline-none"
                         >
-                          <option value="">-- Choose an Evaluation --</option>
-                          <option value="developmental">Developmental Assessment</option>
-                          <option value="behavioural">Behavioural Assessment</option>
-                          <option value="communication">Communication Assessment</option>
-                          <option value="functional">Functional Assessment</option>
+                          <option value="">-- Choose a Service --</option>
+                          <option value="inclusive">Inclusive Education Support</option>
+                          <option value="iep">Individual Education Planning</option>
+                          <option value="academic">Academic Intervention</option>
+                          <option value="observation">Classroom Observation</option>
+                          <option value="consultation">School Consultation</option>
+                          <option value="transition">Transition Planning</option>
                         </select>
                       </div>
                     )}
 
-                    {formData.service === "Training" && (
+                    {formData.service === "Parent & Family Services" && (
                       <div className="space-y-2 pt-2">
-                        <label className="block text-xs font-bold uppercase tracking-wider text-text-soft">Select Workshop Focus</label>
+                        <label className="block text-xs font-bold uppercase tracking-wider text-text-soft">Select Family Service</label>
                         <select
                           value={formData.subService}
                           onChange={(e) => handleChange("subService", e.target.value)}
                           className="w-full bg-white border border-brand-muted px-4 py-3 rounded-2xl text-sm font-semibold text-text-soft focus:border-brand-primary outline-none"
                         >
-                          <option value="">-- Choose a focus --</option>
-                          <option value="parents">Parent & Caregiver Training</option>
-                          <option value="schools">School & Classroom Training</option>
-                          <option value="professionals">Allied Professional Training</option>
+                          <option value="">-- Choose a Service --</option>
+                          <option value="coaching">Parent Coaching</option>
+                          <option value="behaviour">Behaviour Consultation</option>
+                          <option value="home">Home-Based Support</option>
+                          <option value="caregiver">Caregiver Training</option>
+                          <option value="workshops">Family Workshops</option>
                         </select>
+                      </div>
+                    )}
+
+                    {formData.service === "Professional Services" && (
+                      <div className="space-y-2 pt-2">
+                        <label className="block text-xs font-bold uppercase tracking-wider text-text-soft">Select Professional Service</label>
+                        <select
+                          value={formData.subService}
+                          onChange={(e) => handleChange("subService", e.target.value)}
+                          className="w-full bg-white border border-brand-muted px-4 py-3 rounded-2xl text-sm font-semibold text-text-soft focus:border-brand-primary outline-none"
+                        >
+                          <option value="">-- Choose a Service --</option>
+                          <option value="staff-training">Staff Training</option>
+                          <option value="mentorship">Professional Mentorship</option>
+                          <option value="supervision">Supervision</option>
+                          <option value="workshops">Workshops and Seminars</option>
+                          <option value="cpd">Continuing Professional Development (CPD)</option>
+                        </select>
+                      </div>
+                    )}
+
+                    {formData.service === "General Enquiry / Not Sure" && (
+                      <div className="space-y-2 pt-2">
+                        <label className="block text-xs font-bold uppercase tracking-wider text-text-soft">What can we help with?</label>
+                        <textarea
+                          rows={3}
+                          placeholder="Describe your concern or question..."
+                          value={formData.subService}
+                          onChange={(e) => handleChange("subService", e.target.value)}
+                          className="w-full bg-white border border-brand-muted px-4 py-3 rounded-2xl text-sm font-semibold text-text-soft focus:border-brand-primary outline-none transition-all resize-none"
+                        />
                       </div>
                     )}
                   </div>
@@ -885,7 +940,7 @@ export default function BookingPage() {
                           className="h-5 w-5 rounded border-brand-muted text-brand-primary focus:ring-brand-primary shrink-0 mt-0.5"
                         />
                         <span className="text-xs font-semibold text-text-soft leading-relaxed group-hover:text-surface-dark transition-colors">
-                          I consent to The Learner Centered Consult Limited contacting me regarding this enquiry. I understand my data will be used in accordance with the <Link to="/privacy-policy" className="text-brand-primary hover:underline">Privacy Policy</Link>.
+                          I consent to The Learner Centered Consult (LCC) contacting me regarding this enquiry. I understand my data will be used in accordance with the <Link to="/privacy-policy" className="text-brand-primary hover:underline">Privacy Policy</Link>.
                         </span>
                       </label>
                       {errors.consent && (

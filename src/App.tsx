@@ -19,8 +19,11 @@ import BookingPage from "./pages/BookingPage";
 import ReferralPage from "./pages/ReferralPage";
 
 
-import FaqPage from "./pages/FaqPage";
+import EducationalServicesOverview from "./pages/EducationalServicesOverview";
+import ParentFamilyServicesOverview from "./pages/ParentFamilyServicesOverview";
+import ProfessionalServicesOverview from "./pages/ProfessionalServicesOverview";
 import ContactPage from "./pages/ContactPage";
+import FaqPage from "./pages/FaqPage";
 import LegalPage from "./pages/LegalPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
@@ -50,8 +53,11 @@ export default function App() {
             <Route path="/referral" element={<ReferralPage />} />
 
 
-            <Route path="/faq" element={<FaqPage />} />
+            <Route path="/services/educational" element={<EducationalServicesOverview />} />
+            <Route path="/services/parent" element={<ParentFamilyServicesOverview />} />
+            <Route path="/services/professional" element={<ProfessionalServicesOverview />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/faq" element={<FaqPage />} />
 
             {/* Legal tabbed policies */}
             <Route path="/privacy-policy" element={<LegalPage />} />

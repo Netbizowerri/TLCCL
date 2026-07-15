@@ -103,8 +103,8 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h4 className="font-bold text-base text-surface-dark">Clinic Email</h4>
-                  <a href="mailto:info@brightpathcdc.com" className="text-brand-primary text-xs sm:text-sm font-bold block hover:underline">
-                    info@brightpathcdc.com
+                  <a href="mailto:info@tlcconsult.com" className="text-brand-primary text-xs sm:text-sm font-bold block hover:underline">
+                    info@tlcconsult.com
                   </a>
                 </div>
               </li>
@@ -174,7 +174,7 @@ export default function ContactPage() {
                       type="tel"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full bg-white border border-brand-muted px-4 py-3 rounded-2xl text-xs sm:text-sm font-semibold text-text-base focus-border-brand-primary outline-none transition-all"
+                      className="w-full bg-white border border-brand-muted px-4 py-3 rounded-2xl text-xs sm:text-sm font-semibold text-text-base focus:border-brand-primary outline-none transition-all"
                     />
                   </div>
                 </div>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, CheckCircle2, ArrowRight, Heart, Brain, Shield, Smile, Sparkles, HelpCircle } from "lucide-react";
+import { ChevronDown, CheckCircle2, ArrowRight, Heart, Brain, Shield, Smile, Sparkles, HelpCircle, BookOpen, Calendar, Users, Zap } from "lucide-react";
 import { therapyPrograms } from "../data/siteData";
 import { img } from "../data/images";
 
@@ -15,13 +15,17 @@ export default function TherapyIndividualPage() {
 
   const data = therapyPrograms[id];
 
-  // Map icon strings to Lucide components
   const renderIcon = (name: string, className: string) => {
     switch (name) {
       case "Heart": return <Heart className={className} />;
       case "Brain": return <Brain className={className} />;
       case "Shield": return <Shield className={className} />;
       case "Smile": return <Smile className={className} />;
+      case "Sparkles": return <Sparkles className={className} />;
+      case "BookOpen": return <BookOpen className={className} />;
+      case "Calendar": return <Calendar className={className} />;
+      case "Users": return <Users className={className} />;
+      case "Zap": return <Zap className={className} />;
       default: return <Sparkles className={className} />;
     }
   };
@@ -63,6 +67,25 @@ export default function TherapyIndividualPage() {
               {data.tagline}
             </motion.p>
           </div>
+
+          {/* Hero image banner */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="relative h-56 sm:h-72 w-full rounded-4xl overflow-hidden shadow-xl border border-brand-muted mt-6"
+          >
+            <img
+              src={img.therapy[data.id as keyof typeof img.therapy]}
+              alt={data.title}
+              className="absolute inset-0 w-full h-full object-cover"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-surface-dark/55 via-surface-dark/10 to-transparent" />
+            <div className="absolute bottom-4 left-5 text-white">
+              <span className="text-[11px] font-black uppercase tracking-widest text-brand-accent">Therapy Programme</span>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -80,15 +103,7 @@ export default function TherapyIndividualPage() {
           <div className="lg:col-span-5 flex justify-center">
             <div className="relative w-full max-w-sm aspect-[4/5] rounded-4xl overflow-hidden shadow-xl border border-brand-muted">
               <img
-                src={data.id === "aba"
-                  ? "https://i.ibb.co/VYXwBy2s/Gemini-Generated-Image-h5n2fjh5n2fjh5n2.png"
-                  : data.id === "occupational"
-                  ? "https://i.ibb.co/svrzxqJ9/Gemini-Generated-Image-otw9rxotw9rxotw9.png"
-                  : data.id === "behavioural"
-                  ? "https://i.ibb.co/WNqTwddC/Gemini-Generated-Image-u7hyenu7hyenu7hy.png"
-                  : data.id === "cognitive"
-                  ? "https://i.ibb.co/m73c5DX/Gemini-Generated-Image-rum0gjrum0gjrum0.png"
-                  : img.therapy[data.id as keyof typeof img.therapy]}
+                src={img.therapy[data.id as keyof typeof img.therapy]}
                 alt={data.title}
                 className="absolute inset-0 w-full h-full object-cover"
                 loading="lazy"

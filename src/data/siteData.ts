@@ -47,10 +47,10 @@ export interface ConditionDetails {
 export const therapyPrograms: Record<string, ProgramDetails> = {
   aba: {
     id: "aba",
-    title: "Applied Behaviour Analysis (ABA) Therapy",
+    title: "Applied Behaviour Analysis (ABA)",
     tagline: "Empowering children through structured, positive behaviour reinforcement.",
     iconName: "Heart",
-    intro: "Applied Behaviour Analysis (ABA) is a scientifically validated therapy focused on understanding and improving specific behaviours. At The Learner Centered Consult Limited, we utilize a highly compassionate, child-led approach to ABA. Rather than rigid drills, we blend therapy into natural play settings, focusing on building crucial communication, academic, and daily living skills while safely reducing challenging behaviours.",
+    intro: "Applied Behaviour Analysis (ABA) is a scientifically validated therapy focused on understanding and improving specific behaviours. At The Learner Centered Consult (LCC), we utilize a highly compassionate, child-led approach to ABA. Rather than rigid drills, we blend therapy into natural play settings, focusing on building crucial communication, academic, and daily living skills while safely reducing challenging behaviours.",
     whoBenefits: [
       "Autism Spectrum Disorder (ASD)",
       "ADHD & Attention difficulties",
@@ -76,7 +76,7 @@ export const therapyPrograms: Record<string, ProgramDetails> = {
     faqs: [
       {
         q: "Is ABA therapy too rigid for young children?",
-        a: "Not at The Learner Centered Consult Limited. Traditional ABA could be rigid, but our modern ABA is naturalistic, playful, and completely child-led. We follow the child's interests to make learning joyful.",
+        a: "Not at The Learner Centered Consult (LCC). Traditional ABA could be rigid, but our modern ABA is naturalistic, playful, and completely child-led. We follow the child's interests to make learning joyful.",
       },
       {
         q: "How many hours a week does a child need?",
@@ -140,7 +140,7 @@ export const therapyPrograms: Record<string, ProgramDetails> = {
     title: "Occupational Therapy",
     tagline: "Enhancing motor skills, sensory integration, and independence.",
     iconName: "Shield",
-    intro: "Occupational Therapy (OT) focuses on the 'occupations' of childhood — playing, learning, and managing daily self-care tasks. At The Learner Centered Consult Limited, our OT practitioners help children develop fine and gross motor skills, regulate sensory inputs (like sound, touch, and light), and build the bodily control required for writing, typing, dressing, and school-related coordination.",
+    intro: "Occupational Therapy (OT) focuses on the 'occupations' of childhood — playing, learning, and managing daily self-care tasks. At The Learner Centered Consult (LCC), our OT practitioners help children develop fine and gross motor skills, regulate sensory inputs (like sound, touch, and light), and build the bodily control required for writing, typing, dressing, and school-related coordination.",
     whoBenefits: [
       "Sensory Processing Issues (over- or under-reacting to sensory inputs)",
       "Fine Motor Delays (holding pencils, using scissors, buttoning shirts)",
@@ -259,6 +259,211 @@ export const therapyPrograms: Record<string, ProgramDetails> = {
       { name: "Behavioural Intervention", path: "/services/therapy-programmes/behavioural" },
     ],
   },
+  early: {
+    id: "early",
+    title: "Early Intervention",
+    tagline: "Critical developmental support during the most neuroplastic years.",
+    iconName: "Sparkles",
+    intro: "Early Intervention provides comprehensive, multidisciplinary support for infants and young children showing signs of developmental delays. By intervening during the critical window of neuroplasticity (birth to age 5), we maximize each child's developmental trajectory across communication, motor, cognitive, and social-emotional domains.",
+    whoBenefits: [
+      "Infants and toddlers with developmental delays",
+      "Children at risk for developmental disorders",
+      "Premature infants needing developmental monitoring",
+      "Families seeking early developmental guidance",
+    ],
+    sessionFlow: [
+      "Developmental Screening: Quick milestone checks across all domains.",
+      "Family-Cognitive Play: Age-appropriate activities targeting specific developmental goals.",
+      "Parent Coaching: Teaching caregivers strategies to embed learning in daily routines.",
+      "Progress Review: Regular assessment and goal adjustment.",
+    ],
+    goals: [
+      "Maximize developmental potential during peak neuroplasticity.",
+      "Support families in understanding and promoting development.",
+      "Facilitate smoother transitions to preschool and school settings.",
+      "Reduce the need for intensive interventions later in life.",
+    ],
+    evidenceBase: "Extensive research demonstrates that early intervention services significantly improve developmental outcomes, with earlier initiation correlating with better long-term trajectories.",
+    faqs: [
+      {
+        q: "What age is early intervention for?",
+        a: "Early intervention typically serves children from birth to age 5, with the most critical window being birth to 3 years.",
+      },
+      {
+        q: "Do I need a diagnosis to start early intervention?",
+        a: "No. Children can receive early intervention services based on developmental delays or risk factors, even before a formal diagnosis.",
+      },
+    ],
+    related: [
+      { name: "Developmental Assessment", path: "/services/assessments/developmental" },
+      { name: "ABA Therapy", path: "/services/therapy-programmes/aba" },
+    ],
+  },
+  readiness: {
+    id: "readiness",
+    title: "School Readiness Programme",
+    tagline: "Preparing children for confident classroom transitions.",
+    iconName: "GraduationCap",
+    intro: "Our School Readiness Programme equips children with the foundational skills needed for successful entry into mainstream or specialized educational settings. We focus on academic precursors, social skills, independence, and emotional regulation.",
+    whoBenefits: [
+      "Children approaching school age (4-6 years)",
+      "Children with developmental delays transitioning to school",
+      "Children needing support with classroom routines",
+      "Families preparing for educational placement decisions",
+    ],
+    sessionFlow: [
+      "Circle Time Practice: Group attention, turn-taking, and following instructions.",
+      "Pre-Academic Skills: Letter recognition, counting, name writing, and fine motor tasks.",
+      "Social Skills: Sharing, cooperative play, conflict resolution, and peer interaction.",
+      "Independence Skills: Self-care, transitions, and following visual schedules.",
+    ],
+    goals: [
+      "Develop classroom-ready attention and group participation skills.",
+      "Build foundational academic concepts (literacy and numeracy precursors).",
+      "Establish social confidence and peer interaction abilities.",
+      "Foster independence in self-care and routine following.",
+    ],
+    evidenceBase: "School readiness skills are strong predictors of long-term academic achievement and social adjustment. Structured preparation programs significantly improve transition outcomes.",
+    faqs: [
+      {
+        q: "When should we start school readiness preparation?",
+        a: "Ideally 6-12 months before school entry, but we can tailor programs for any timeline.",
+      },
+      {
+        q: "Is this only for children with diagnosed conditions?",
+        a: "No. Any child who would benefit from structured preparation for school expectations can participate.",
+      },
+    ],
+    related: [
+      { name: "Cognitive Development Therapy", path: "/services/therapy-programmes/cognitive" },
+      { name: "Behavioural Intervention", path: "/services/therapy-programmes/behavioural" },
+    ],
+  },
+  social: {
+    id: "social",
+    title: "Social Skills Training",
+    tagline: "Building meaningful peer connections and social confidence.",
+    iconName: "Users",
+    intro: "Social Skills Training provides structured opportunities for children to learn and practice essential interpersonal skills in a supportive group setting. Sessions target the nuances of social communication that many neurodivergent children find challenging.",
+    whoBenefits: [
+      "Children with Autism Spectrum Disorder",
+      "Children with Social Communication Disorder",
+      "Children struggling with peer relationships",
+      "Children with anxiety in social situations",
+    ],
+    sessionFlow: [
+      "Welcome & Check-in: Emotional awareness and group connection.",
+      "Skill Lesson: Explicit teaching of a specific social skill with modeling.",
+      "Guided Practice: Structured activities and role-plays with therapist support.",
+      "Free Play Application: Naturalistic practice with therapist facilitation.",
+      "Parent Debrief: Strategies for home and community generalization.",
+    ],
+    goals: [
+      "Develop conversation skills (initiation, maintenance, topic shifting).",
+      "Improve non-verbal communication (eye contact, body language, facial expressions).",
+      "Enhance perspective-taking and empathy.",
+      "Build friendship skills (sharing, compromise, conflict resolution).",
+      "Reduce social anxiety and increase group participation.",
+    ],
+    evidenceBase: "Social skills group interventions show measurable improvements in peer acceptance, social knowledge, and reduced loneliness for children with social communication challenges.",
+    faqs: [
+      {
+        q: "What age groups do you serve?",
+        a: "We offer groups for preschool (4-6), early primary (7-9), and upper primary (10-12) age ranges.",
+      },
+      {
+        q: "How are groups formed?",
+        a: "Children are grouped by age, developmental level, and social goals to ensure optimal peer matching.",
+      },
+    ],
+    related: [
+      { name: "Speech & Language Therapy", path: "/services/therapy-programmes/speech" },
+      { name: "Behavioural Intervention", path: "/services/therapy-programmes/behavioural" },
+    ],
+  },
+  executive: {
+    id: "executive",
+    title: "Executive Function Coaching",
+    tagline: "Developing planning, organization, and self-management skills.",
+    iconName: "Brain",
+    intro: "Executive Function Coaching provides targeted support for children and adolescents who struggle with the mental processes needed to plan, focus attention, remember instructions, and juggle multiple tasks. This service bridges the gap between cognitive potential and daily performance.",
+    whoBenefits: [
+      "Children with ADHD or executive dysfunction",
+      "Students struggling with organization and time management",
+      "Children with planning and prioritization difficulties",
+      "Adolescents preparing for increased academic demands",
+    ],
+    sessionFlow: [
+      "Skill Assessment: Identifying specific executive function strengths and weaknesses.",
+      "Strategy Instruction: Teaching concrete tools (planners, checklists, chunking techniques).",
+      "Guided Application: Practicing strategies with real school tasks and responsibilities.",
+      "Reflection & Adjustment: Reviewing effectiveness and refining approaches.",
+      "Home/School Coordination: Aligning supports across environments.",
+    ],
+    goals: [
+      "Improve task initiation and reduce procrastination.",
+      "Enhance planning, prioritization, and time estimation.",
+      "Strengthen working memory and attention control.",
+      "Develop organizational systems for materials and information.",
+      "Build self-monitoring and metacognitive awareness.",
+    ],
+    evidenceBase: "Executive function coaching based on cognitive-behavioral principles demonstrates significant improvements in academic performance, homework completion, and independent functioning.",
+    faqs: [
+      {
+        q: "At what age is executive function coaching appropriate?",
+        a: "Typically ages 8+, when children have sufficient metacognitive capacity to engage with strategies. Younger children benefit more from parent-mediated approaches.",
+      },
+      {
+        q: "Is this different from tutoring?",
+        a: "Yes. Tutoring teaches subject content; executive function coaching teaches *how to learn* and *how to manage* learning tasks across all subjects.",
+      },
+    ],
+    related: [
+      { name: "Cognitive Development Therapy", path: "/services/therapy-programmes/cognitive" },
+      { name: "Behavioural Intervention", path: "/services/therapy-programmes/behavioural" },
+    ],
+  },
+  special: {
+    id: "special",
+    title: "Special Education",
+    tagline: "Individualized academic instruction for diverse learning needs.",
+    iconName: "BookOpen",
+    intro: "Special Education provides customized academic instruction tailored to each child's unique learning profile. Our special educators work on specific academic goals using evidence-based instructional strategies, accommodations, and modifications to help children access the curriculum meaningfully.",
+    whoBenefits: [
+      "Children with Specific Learning Disabilities (Dyslexia, Dyscalculia, Dysgraphia)",
+      "Children with Intellectual Disabilities",
+      "Children needing curriculum modifications or alternative pathways",
+      "Children with uneven academic profiles",
+    ],
+    sessionFlow: [
+      "Academic Assessment: Baseline reading, writing, and math skills evaluation.",
+      "Individualized Goal Setting: Specific, measurable academic targets.",
+      "Direct Instruction: Systematic, explicit teaching using multisensory methods.",
+      "Progress Monitoring: Frequent data collection to guide instruction.",
+      "Parent/School Collaboration: Sharing strategies and progress.",
+    ],
+    goals: [
+      "Close academic gaps in reading, writing, and mathematics.",
+      "Develop compensatory strategies for learning differences.",
+      "Build academic confidence and self-advocacy skills.",
+      "Support access to grade-level content through accommodations.",
+    ],
+    evidenceBase: "Special education interventions using explicit, systematic, and multisensory instruction are the gold standard for addressing specific learning disabilities and academic delays.",
+    faqs: [
+      {
+        q: "How does this differ from regular tutoring?",
+        a: "Special education uses specialized instructional methodologies (e.g., Orton-Gillingham for dyslexia) and addresses underlying processing deficits, not just content gaps.",
+      },
+      {
+        q: "Do you coordinate with school IEPs?",
+        a: "Yes. We align our goals with school Individualized Education Programs and provide progress data for IEP reviews.",
+      },
+    ],
+    related: [
+      { name: "Cognitive Development Therapy", path: "/services/therapy-programmes/cognitive" },
+      { name: "School Consultation", path: "/services/educational/consultation" },
+    ],
+  },
 };
 
 export const assessmentPrograms: Record<string, AssessmentDetails> = {
@@ -303,6 +508,47 @@ export const assessmentPrograms: Record<string, AssessmentDetails> = {
       },
     ],
   },
+  psychoeducational: {
+    id: "psychoeducational",
+    title: "Psychoeducational Assessment",
+    tagline: "In-depth evaluation of learning, cognition, and academic achievement.",
+    covers: [
+      "Cognitive Ability (IQ) Testing",
+      "Academic Achievement (Reading, Writing, Mathematics)",
+      "Information Processing (Memory, Attention, Processing Speed)",
+      "Executive Functioning Assessment",
+      "Social-Emotional & Behavioral Screening",
+    ],
+    process: [
+      "Parent/Teacher Interviews & Rating Scales (developmental, behavioral, academic history).",
+      "Cognitive Assessment (standardized intelligence testing).",
+      "Academic Achievement Testing (standardized reading, writing, math measures).",
+      "Supplemental Testing: Attention, memory, executive function as needed.",
+      "Integrated Report Writing & Feedback Session with parents and school (if requested).",
+    ],
+    deliverables: [
+      "Comprehensive Psychoeducational Report with standard scores and percentile ranks.",
+      "Specific Learning Disability diagnosis determination (if criteria met).",
+      "Detailed recommendations for school accommodations (IEP/504), interventions, and home support.",
+      "Referral recommendations for additional services (OT, Speech, Counseling).",
+    ],
+    checklist: [
+      "Struggling significantly with reading, writing, or math despite effort.",
+      "Discrepancy between cognitive ability and academic performance.",
+      "Attention, organization, or memory difficulties affecting schoolwork.",
+      "School requesting formal evaluation for special education eligibility.",
+    ],
+    faqs: [
+      {
+        q: "What age is this assessment for?",
+        a: "Typically ages 6 through young adulthood (college-age).",
+      },
+      {
+        q: "Does this assessment diagnose dyslexia/dyscalculia?",
+        a: "Yes. Psychoeducational assessment is the standard for diagnosing specific learning disabilities.",
+      },
+    ],
+  },
   behavioural: {
     id: "behavioural",
     title: "Behavioural Assessment",
@@ -343,9 +589,91 @@ export const assessmentPrograms: Record<string, AssessmentDetails> = {
       },
     ],
   },
+  fba: {
+    id: "fba",
+    title: "Functional Behaviour Assessment (FBA)",
+    tagline: "Systematic analysis to understand the function of challenging behaviour.",
+    covers: [
+      "Indirect Assessment (interviews, rating scales, record review)",
+      "Direct Observation (ABC data collection across settings)",
+      "Functional Analysis (controlled manipulation of antecedents/consequences)",
+      "Hypothesis Generation (identifying behaviour function: escape, attention, tangible, sensory)",
+      "Function-Based Intervention Planning",
+    ],
+    process: [
+      "Records Review & Interviews: Gathering history from parents, teachers, and providers.",
+      "Direct Observation Sessions: Multiple observations across settings and times.",
+      "ABC Data Analysis: Identifying patterns in antecedents, behaviors, and consequences.",
+      "Functional Analysis (if warranted): Controlled assessment to confirm hypothesis.",
+      "Report & BIP Development: Comprehensive report with function-based intervention plan.",
+    ],
+    deliverables: [
+      "Detailed FBA Report with data summaries and functional hypothesis.",
+      "Function-Based Behavior Intervention Plan (BIP).",
+      "Data collection tools for ongoing monitoring.",
+      "Training plan for implementation fidelity.",
+    ],
+    checklist: [
+      "Challenging behavior occurring frequently across settings.",
+      "Previous interventions have been ineffective.",
+      "Need for formal behavior plan for school (IEP/BIP requirement).",
+      "Behavior poses safety risk to self or others.",
+    ],
+    faqs: [
+      {
+        q: "How is FBA different from a general behavioural assessment?",
+        a: "FBA is a specific, systematic process mandated for students with disabilities exhibiting challenging behaviors. It includes controlled functional analysis to experimentally verify the behavior's function.",
+      },
+      {
+        q: "How long does an FBA take?",
+        a: "Typically 2-4 weeks depending on observation frequency and complexity.",
+      },
+    ],
+  },
+  functional: {
+    id: "functional",
+    title: "Functional Analysis",
+    tagline: "Experimental verification of behaviour function under controlled conditions.",
+    covers: [
+      "Analogue Functional Analysis Conditions (Attention, Escape, Tangible, Control)",
+      "Synthesized Contingency Analyses",
+      "Brief Functional Analysis Formats",
+      "Latency-Based Functional Analysis",
+      "Trial-Based Functional Analysis",
+    ],
+    process: [
+      "Brief Assessment & Screening: Determining appropriateness for functional analysis.",
+      "Session Setup: Controlled environment with trained therapists and safety protocols.",
+      "Condition Testing: Systematic exposure to test and control conditions.",
+      "Data Analysis: Visual inspection and statistical analysis of behavior rates.",
+      "Function Confirmation: Verifying maintaining variables for intervention design.",
+    ],
+    deliverables: [
+      "Functional Analysis Report with graphed data and visual analysis.",
+      "Confirmed behavioural function(s) with high certainty.",
+      "Precision intervention recommendations based on verified function.",
+      "Safety and ethical compliance documentation.",
+    ],
+    checklist: [
+      "Severe challenging behavior with unclear function.",
+      "High-risk behaviors requiring precise intervention targeting.",
+      "Research or clinical need for experimental functional verification.",
+      "Previous indirect assessments yielded inconclusive results.",
+    ],
+    faqs: [
+      {
+        q: "Is functional analysis safe?",
+        a: "Yes, when conducted by trained professionals with strict safety protocols, brief functional analysis conditions are safe and ethically mandated for severe behaviors.",
+      },
+      {
+        q: "How does this differ from FBA?",
+        a: "Functional Analysis is the experimental component of FBA where conditions are systematically manipulated to demonstrate causal relationships. FBA is the broader assessment process.",
+      },
+    ],
+  },
   communication: {
     id: "communication",
-    title: "Communication & Speech Assessment",
+    title: "Speech & Language Assessment",
     tagline: "Evaluating speech sound precision, language structure, and social communication.",
     covers: [
       "Receptive language skills (how the child understands words and sentences)",
@@ -384,43 +712,47 @@ export const assessmentPrograms: Record<string, AssessmentDetails> = {
       },
     ],
   },
-  functional: {
-    id: "functional",
-    title: "Functional & Adaptive Assessment",
-    tagline: "Measuring practical skills for day-to-day independent living.",
+  occupational: {
+    id: "occupational",
+    title: "Occupational Therapy Assessment",
+    tagline: "Comprehensive evaluation of motor, sensory, and functional daily living skills.",
     covers: [
-      "Daily self-care (feeding, dressing, toileting, personal hygiene)",
-      "Community safety & navigation skills",
-      "Functional academic skills (money concepts, basic reading labels)",
-      "Vocational & school readiness milestones",
-      "Adaptive behavioral indices",
+      "Fine Motor Skills (grasping, manipulation, handwriting, tool use)",
+      "Gross Motor Skills (balance, coordination, postural control, praxis)",
+      "Sensory Processing (registration, modulation, discrimination across all systems)",
+      "Visual-Motor Integration (eye-hand coordination, visual perception)",
+      "Activities of Daily Living (self-care, feeding, dressing, hygiene)",
     ],
     process: [
-      "Comprehensive adaptive behavior inventory filled with parent or caregiver (Vineland-3).",
-      "Direct practical observation of self-care skills (grooming, task planning).",
-      "Simulated community safety exercises inside our therapy rooms.",
-      "Collaboration with occupational and behavioral leads to synthesize results.",
+      "Parent Interview & Sensory Profile: Detailed developmental and sensory history.",
+      "Standardized Motor Testing: Fine and gross motor standardized assessments.",
+      "Clinical Observations: Structured and unstructured play observations.",
+      "Sensory Processing Assessment: Standardized sensory profiles and clinical observation.",
+      "ADL Assessment: Functional evaluation of daily living skills.",
+      "Report & Feedback: Comprehensive findings with therapy recommendations.",
     ],
     deliverables: [
-      "Adaptive Behaviour Index Report with standard age scores.",
-      "Highly customized checklist of immediate self-care milestones.",
-      "Step-by-step home safety and community exploration checklist.",
-      "Structured school/workplace accommodation recommendation letter.",
+      "Comprehensive OT Evaluation Report with standardized scores.",
+      "Sensory Processing Profile with quadrant analysis.",
+      "Fine/Gross Motor Developmental Age Equivalents.",
+      "ADL Independence Levels and Targeted Goals.",
+      "Therapy Recommendations (frequency, duration, focus areas).",
     ],
     checklist: [
-      "Difficulty eating, using utensils, or drinking independently.",
-      "Struggling to manage personal hygiene or use the restroom alone.",
-      "Lack of awareness of basic physical safety rules (e.g., crossing streets).",
-      "Inability to manage simple tasks (packing a school backpack, cleaning up play toys).",
+      "Difficulty with handwriting, scissors, buttons, or utensils.",
+      "Clumsiness, poor balance, frequent falls, or awkward movement patterns.",
+      "Over/under-sensitivity to sounds, textures, movement, or touch.",
+      "Struggles with self-care tasks (dressing, feeding, toileting).",
+      "Difficulty with visual tasks (puzzles, copying, tracking).",
     ],
     faqs: [
       {
-        q: "What is adaptive behavior?",
-        a: "Adaptive behavior refers to the age-appropriate skills a child needs to function safely and independently in everyday life, without constant adult support.",
+        q: "What standardized tests do you use?",
+        a: "We use the BOT-2, VMI, Sensory Profile 2, PDMS-2, and other gold-standard instruments based on the child's age and concerns.",
       },
       {
-        q: "Are the findings useful for school planning?",
-        a: "Absolutely. Schools use adaptive scores to customize IEPs (Individualized Education Programs), determining what accommodations or support staff the child needs.",
+        q: "Can this assessment diagnose sensory processing disorder?",
+        a: "While sensory processing differences are identified, formal diagnosis requires multidisciplinary correlation. We provide detailed sensory profiles for intervention planning.",
       },
     ],
   },
@@ -479,6 +811,42 @@ export const trainingPrograms: Record<string, TrainingDetails> = {
       "Sophisticated clinical skill acquisition aligned with global gold-standard guidelines.",
       "Access to our collaborative professional referral network.",
       "Mastery of modern, neurodiversity-affirming clinical ethics.",
+    ],
+  },
+  workshops: {
+    id: "workshops",
+    title: "Workshops and Seminars",
+    tagline: "Focused skill-building sessions on specialized topics.",
+    modules: [
+      "AAC Implementation Workshop — Hands-on training with communication devices and apps.",
+      "Sensory Diet Design — Creating individualized sensory regulation plans.",
+      "Toileting Independence Workshop — Step-by-step protocols for toilet training.",
+      "Transition Planning Seminar — Preparing for school, adolescence, and adulthood transitions.",
+    ],
+    audience: "Parents, educators, therapists, and caregivers seeking targeted skill development.",
+    format: "Half-day or full-day intensive workshops with hands-on practice and resource packets.",
+    outcomes: [
+      "Immediate practical skills for specific challenges.",
+      "Take-home resources and implementation guides.",
+      "Certificate of completion for professional development records.",
+    ],
+  },
+  cpd: {
+    id: "cpd",
+    title: "Continuing Professional Development (CPD)",
+    tagline: "Accredited ongoing education for clinical excellence.",
+    modules: [
+      "Quarterly Clinical Grand Rounds — Case presentations and interdisciplinary discussion.",
+      "Journal Club — Critical appraisal of current developmental research.",
+      "Supervision Groups — Structured peer supervision for clinical decision-making.",
+      "Annual Conference — Multi-day event with international speakers and workshops.",
+    ],
+    audience: "Licensed therapists, psychologists, BCBAs, and clinical supervisors.",
+    format: "Hybrid (in-person and virtual) sessions with CEU credits available.",
+    outcomes: [
+      "Maintenance of licensure and certification requirements.",
+      "Current knowledge of evidence-based practices.",
+      "Professional networking and collaboration opportunities.",
     ],
   },
 };
@@ -604,3 +972,76 @@ export const conditionsSupported: Record<string, ConditionDetails> = {
     reassurance: "Children do well when they can. If a child is struggling in school, it is a sign that they lack the tools or support, not the willingness to succeed. We identify those missing tools and build them together, systematically.",
   },
 };
+
+export const coreValues = [
+  "Integrity",
+  "Excellence",
+  "Professionalism",
+  "Compassion",
+  "Accountability",
+  "Collaboration",
+  "Child- and Family-Centred Practice",
+  "Respect",
+  "Confidentiality",
+  "Inclusion",
+  "Evidence-Based Practice",
+  "Continuous Learning",
+];
+
+export const parentResources = [
+  "Parent Guides",
+  "Reinforcement Plan",
+  "Developmental Milestones",
+  "Home Activity Sheets",
+  "Behaviour Support Strategies",
+  "Articles",
+  "Frequently Asked Questions",
+];
+
+export const faqs = [
+  { q: "What is Applied Behaviour Analysis (ABA)?", a: "ABA is a scientifically validated therapy focused on understanding and improving specific behaviors through positive reinforcement and structured teaching methods." },
+  { q: "How do I know if my child needs an assessment?", a: "If you have concerns about your child's development, communication, behavior, or learning, an assessment can provide clarity. Common signs include delayed milestones, difficulty with social interaction, challenging behaviors, or academic struggles." },
+  { q: "What happens during an assessment?", a: "Assessments involve parent interviews, direct observation of your child, standardized testing, and a feedback session to discuss results and recommendations." },
+  { q: "Do parents participate in therapy?", a: "Yes, parent participation is essential. We provide coaching and training so strategies can be implemented at home for maximum progress." },
+  { q: "How is progress measured?", a: "We use data-based decision making with continuous data collection during sessions, regular progress reviews, and standardized re-assessments at intervals." },
+  { q: "Do you provide school-based services?", a: "Yes, we offer school consultation, classroom observations, teacher training, and IEP collaboration." },
+  { q: "How do I book an appointment?", a: "You can book a free consultation through our booking page, call us at +234 812 345 6789, or email info@tlcconsult.com." },
+];
+
+export const processSteps = [
+  {
+    step: 1,
+    title: "Initial Consultation",
+    description: "We begin by understanding your concerns, gathering background information, and discussing your child's strengths, challenges, and developmental history."
+  },
+  {
+    step: 2,
+    title: "Comprehensive Assessment",
+    description: "Our multidisciplinary team conducts appropriate assessments to understand your child's developmental, behavioural, communication, academic, and functional needs."
+  },
+  {
+    step: 3,
+    title: "Individualised Goal Development",
+    description: "Assessment findings are translated into meaningful, measurable goals that reflect your child's needs and your family's priorities."
+  },
+  {
+    step: 4,
+    title: "Evidence-Based Intervention",
+    description: "Intervention programmes are implemented using evidence-based practices tailored to your child's learning profile."
+  },
+  {
+    step: 5,
+    title: "Parent Collaboration",
+    description: "Parents and caregivers receive ongoing coaching, practical strategies, and regular feedback to promote skill generalisation across settings."
+  },
+  {
+    step: 6,
+    title: "Data-Based Decision Making",
+    description: "We continuously collect and analyse data to evaluate progress and adjust intervention as needed."
+  },
+  {
+    step: 7,
+    title: "Progress Reviews",
+    description: "Regular reviews ensure that goals remain appropriate, measurable, and responsive to your child's development."
+  },
+];

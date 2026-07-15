@@ -2,36 +2,10 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { HelpCircle, ChevronDown, Sparkles } from "lucide-react";
+import { faqs } from "../data/siteData";
 
 export default function FaqPage() {
   const [openIdx, setOpenFaqIdx] = useState<number | null>(null);
-
-  const faqs = [
-    {
-      q: "Where is your consult located?",
-      a: "Our state-of-the-art clinic is located at 12 Jide Oki Street, Victoria Island, Lagos, Nigeria. We feature dedicated sensory therapy gyms, speech rooms, and positive play spaces.",
-    },
-    {
-      q: "What is your clinical therapy philosophy?",
-      a: "We operate strictly under modern, neurodiversity-affirming, play-integrated frameworks. We focus on building functional life skills and communication (such as spoken language, signs, or AAC boards) while preserving your child&apos;s dignity and interests.",
-    },
-    {
-      q: "How much does a developmental assessment cost?",
-      a: "Costs vary depending on the testing batteries required (Developmental, Behavioural, Speech, or Adaptive Vineland scales). Please schedule an intake call to receive a structured quote sheet containing diagnostic packages.",
-    },
-    {
-      q: "Do you offer online therapy sessions?",
-      a: "Yes. For parent training sessions, classroom consultations, or speech coaching for older children, we offer secure, interactive online video sessions.",
-    },
-    {
-      q: "Can your clinical reports be shared with my child&apos;s school?",
-      a: "Absolutely. Our generated reports are highly descriptive and formatted to satisfy international legal standards for drafting IEPs and school-based accommodations.",
-    },
-    {
-      q: "How long does a typical therapy session take?",
-      a: "Direct therapy sessions are typically 45 to 60 minutes long, followed by a 10-minute caregiver handover to demonstrate home routines.",
-    },
-  ];
 
   return (
     <div className="bg-white">

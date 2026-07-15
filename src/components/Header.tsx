@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Menu, X, ChevronDown, Heart, ClipboardList, GraduationCap, Calendar } from "lucide-react";
+import { Menu, X, ChevronDown, Heart, ClipboardList, GraduationCap, Calendar, Users, Briefcase, BookOpen } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Header() {
@@ -9,45 +9,78 @@ export default function Header() {
 
   const services = [
     {
-      title: "Therapy Programmes",
-      icon: Heart,
-      path: "/services/therapy-programmes",
-      items: [
-        { name: "ABA Therapy", path: "/services/therapy-programmes/aba" },
-        { name: "Speech & Language Therapy", path: "/services/therapy-programmes/speech" },
-        { name: "Occupational Therapy", path: "/services/therapy-programmes/occupational" },
-        { name: "Behavioural Intervention", path: "/services/therapy-programmes/behavioural" },
-        { name: "Cognitive Development", path: "/services/therapy-programmes/cognitive" },
-      ],
-    },
-    {
-      title: "Assessments",
+      title: "Assessment Services",
       icon: ClipboardList,
       path: "/services/assessments",
       items: [
         { name: "Developmental Assessment", path: "/services/assessments/developmental" },
+        { name: "Psychoeducational Assessment", path: "/services/assessments/psychoeducational" },
         { name: "Behavioural Assessment", path: "/services/assessments/behavioural" },
-        { name: "Communication Assessment", path: "/services/assessments/communication" },
-        { name: "Functional Assessment", path: "/services/assessments/functional" },
+        { name: "Functional Behaviour Assessment (FBA)", path: "/services/assessments/fba" },
+        { name: "Functional Analysis", path: "/services/assessments/functional" },
+        { name: "Speech & Language Assessment", path: "/services/assessments/communication" },
+        { name: "Occupational Therapy Assessment", path: "/services/assessments/occupational" },
       ],
     },
     {
-      title: "Training",
-      icon: GraduationCap,
-      path: "/services/training",
+      title: "Therapy Services",
+      icon: Heart,
+      path: "/services/therapy-programmes",
       items: [
-        { name: "Parent & Caregiver Training", path: "/services/training/parents" },
-        { name: "School & Teacher Training", path: "/services/training/schools" },
-        { name: "Allied Professional Training", path: "/services/training/professionals" },
+        { name: "Applied Behaviour Analysis (ABA)", path: "/services/therapy-programmes/aba" },
+        { name: "Speech & Language Therapy", path: "/services/therapy-programmes/speech" },
+        { name: "Occupational Therapy", path: "/services/therapy-programmes/occupational" },
+        { name: "Special Education", path: "/services/therapy-programmes/special" },
+        { name: "Early Intervention", path: "/services/therapy-programmes/early" },
+        { name: "School Readiness Programme", path: "/services/therapy-programmes/readiness" },
+        { name: "Social Skills Training", path: "/services/therapy-programmes/social" },
+        { name: "Executive Function Coaching", path: "/services/therapy-programmes/executive" },
+      ],
+    },
+    {
+      title: "Educational Services",
+      icon: BookOpen,
+      path: "/services/educational",
+      items: [
+        { name: "Inclusive Education Support", path: "/services/educational/inclusive" },
+        { name: "Individual Education Planning", path: "/services/educational/iep" },
+        { name: "Academic Intervention", path: "/services/educational/academic" },
+        { name: "Classroom Observation", path: "/services/educational/observation" },
+        { name: "School Consultation", path: "/services/educational/consultation" },
+        { name: "Transition Planning", path: "/services/educational/transition" },
+      ],
+    },
+    {
+      title: "Parent & Family Services",
+      icon: Users,
+      path: "/services/parent",
+      items: [
+        { name: "Parent Coaching", path: "/services/parent/coaching" },
+        { name: "Behaviour Consultation", path: "/services/parent/behaviour" },
+        { name: "Home-Based Support", path: "/services/parent/home" },
+        { name: "Caregiver Training", path: "/services/parent/training" },
+        { name: "Family Workshops", path: "/services/parent/workshops" },
+      ],
+    },
+    {
+      title: "Professional Services",
+      icon: Briefcase,
+      path: "/services/professional",
+      items: [
+        { name: "Staff Training", path: "/services/professional/staff-training" },
+        { name: "Professional Mentorship", path: "/services/professional/mentorship" },
+        { name: "Supervision", path: "/services/professional/supervision" },
+        { name: "Workshops and Seminars", path: "/services/professional/workshops" },
+        { name: "Continuing Professional Development", path: "/services/professional/cpd" },
       ],
     },
   ];
 
   const conditions = [
     { name: "Autism Spectrum Disorder (ASD)", path: "/conditions/autism" },
-    { name: "ADHD", path: "/conditions/adhd" },
+    { name: "ADHD (Attention-Deficit/Hyperactivity Disorder)", path: "/conditions/adhd" },
     { name: "Intellectual Disabilities", path: "/conditions/intellectual-disabilities" },
-    { name: "Global Developmental Delay", path: "/conditions/global-developmental-delay" },
+    { name: "Global Developmental Delay (GDD)", path: "/conditions/global-developmental-delay" },
     { name: "Speech & Language Difficulties", path: "/conditions/speech-difficulties" },
     { name: "Learning & Behavioural Challenges", path: "/conditions/learning-behavioural" },
   ];
@@ -65,10 +98,10 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center group" aria-label="The Learner Centered Consult Limited home">
+          <Link to="/" className="flex items-center group" aria-label="The Learner Centered Consult home">
             <img
               src="https://i.ibb.co/SXwpHm2C/The-Learner-Centered-Consult.png"
-              alt="The Learner Centered Consult Limited logo"
+              alt="The Learner Centered Consult logo"
               width={240}
               height={60}
               className="object-contain transition-transform duration-300 group-hover:scale-[1.02]"
@@ -116,36 +149,33 @@ export default function Header() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.15 }}
-                    className="absolute left-0 mt-1 w-[640px] bg-white border border-brand-muted rounded-3xl shadow-xl p-6 grid grid-cols-3 gap-6"
+                    className="absolute left-1/2 -translate-x-1/2 mt-1 w-[500px] bg-white border border-brand-muted rounded-3xl shadow-xl p-4"
                   >
-                    {services.map((section) => {
-                      const Icon = section.icon;
-                      return (
-                        <div key={section.title} className="flex flex-col">
+                    <div className="text-xs font-bold text-brand-teal uppercase tracking-wider mb-2 px-3">
+                      Our Services
+                    </div>
+                    <ul className="space-y-1">
+                      {services.map((section) => (
+                        <li key={section.title}>
                           <Link
                             to={section.path}
                             onClick={() => setActiveDropdown(null)}
-                            className="flex items-center gap-2 font-display text-base font-bold text-surface-dark hover:text-brand-primary mb-3 transition-colors"
+                            className="text-sm font-medium text-brand-teal hover:text-brand-primary hover:bg-brand-soft block px-3 py-2 rounded-xl transition-all"
                           >
-                            <Icon className="h-5 w-5 text-brand-teal" />
                             {section.title}
                           </Link>
-                          <ul className="space-y-2">
-                            {section.items.map((item) => (
-                              <li key={item.name}>
-                                <Link
-                                  to={item.path}
-                                  onClick={() => setActiveDropdown(null)}
-                                  className="text-xs text-text-soft hover:text-brand-primary block py-1 font-medium transition-colors"
-                                >
-                                  {item.name}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      );
-                    })}
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="mt-2 pt-2 border-t border-brand-muted px-3">
+                      <Link
+                        to="/services"
+                        onClick={() => setActiveDropdown(null)}
+                        className="text-xs font-bold text-brand-primary hover:underline flex items-center gap-1"
+                      >
+                        All Services &rarr;
+                      </Link>
+                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -200,18 +230,6 @@ export default function Header() {
               </AnimatePresence>
             </div>
 
-
-            <NavLink
-              to="/faq"
-              className={({ isActive }) =>
-                `text-sm font-semibold transition-colors ${
-                  isActive ? "text-brand-primary" : "text-text-soft hover:text-brand-primary"
-                }`
-              }
-            >
-              FAQ
-            </NavLink>
-
             <NavLink
               to="/contact"
               className={({ isActive }) =>
@@ -237,7 +255,7 @@ export default function Header() {
               className="bg-brand-primary hover:bg-brand-primary/90 text-white text-sm font-bold px-5 py-2.5 rounded-2xl shadow-md shadow-brand-primary/10 hover:shadow-lg hover:shadow-brand-primary/20 hover:-translate-y-0.5 transition-all flex items-center gap-1.5"
             >
               <Calendar className="h-4.5 w-4.5" />
-              Book Consultation
+              Book Assessment
             </Link>
           </div>
 
@@ -246,7 +264,7 @@ export default function Header() {
             <Link
               to="/book"
               className="bg-brand-primary text-white p-2.5 rounded-xl shadow-md"
-              title="Book Consultation"
+              title="Book Assessment"
             >
               <Calendar className="h-5 w-5" />
             </Link>
@@ -366,8 +384,6 @@ export default function Header() {
                   </div>
                 )}
               </div>
-
-
               <Link
                 to="/faq"
                 onClick={() => setMobileMenuOpen(false)}
@@ -397,7 +413,7 @@ export default function Header() {
                   onClick={() => setMobileMenuOpen(false)}
                   className="w-full text-center bg-brand-primary text-white font-bold py-2.5 rounded-2xl shadow-lg"
                 >
-                  Book Free Consultation
+                  Book Free Assessment
                 </Link>
               </div>
             </div>
