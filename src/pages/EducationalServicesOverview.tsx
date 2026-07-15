@@ -88,7 +88,7 @@ export default function EducationalServicesOverview() {
             >
               <div className="relative h-48 overflow-hidden">
                 <img
-                  src={img.bentoTraining}
+                  src={img.educational[service.id as keyof typeof img.educational] || img.bentoTraining}
                   alt={service.title}
                   className="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                   loading="lazy"

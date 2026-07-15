@@ -96,7 +96,7 @@ export default function ProfessionalServicesOverview() {
               >
                 <div className="relative h-48 overflow-hidden">
                   <img
-                    src={img.aboutTeam}
+                    src={img.professional[service.id as keyof typeof img.professional] || img.aboutTeam}
                     alt={service.title}
                     className="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                     loading="lazy"

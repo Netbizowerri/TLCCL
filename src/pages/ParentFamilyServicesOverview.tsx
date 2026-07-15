@@ -82,7 +82,7 @@ export default function ParentFamilyServicesOverview() {
             >
               <div className="relative h-48 overflow-hidden">
                 <img
-                  src={img.familyEmbrace}
+                  src={img.parent[service.id as keyof typeof img.parent] || img.familyEmbrace}
                   alt={service.title}
                   className="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                   loading="lazy"
