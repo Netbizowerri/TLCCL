@@ -398,11 +398,11 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8">
             {/* Assessment Services Card */}
             <Link
               to="/services/assessments"
-              className="bg-white border border-brand-soft rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all group flex flex-col"
+              className="bg-white border border-brand-soft rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all group flex flex-col lg:col-span-2"
             >
               <div className="relative h-48 overflow-hidden">
                 <img
