@@ -49,7 +49,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link to="/conditions" className="text-sm text-text-muted hover:text-white transition-colors">
-                  Conditions We Support
+                  Who We Support
                 </Link>
               </li>
               <li>

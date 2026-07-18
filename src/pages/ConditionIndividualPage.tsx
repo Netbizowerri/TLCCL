@@ -21,7 +21,7 @@ export default function ConditionIndividualPage() {
           <nav className="flex items-center gap-2 text-xs font-semibold text-text-muted">
             <Link to="/" className="hover:text-brand-primary transition-colors">Home</Link>
             <span>&rarr;</span>
-            <Link to="/conditions" className="hover:text-brand-primary transition-colors">Conditions We Support</Link>
+            <Link to="/conditions" className="hover:text-brand-primary transition-colors">Who We Support</Link>
             <span>&rarr;</span>
             <span className="text-text-soft font-bold">{data.title}</span>
           </nav>

@@ -68,7 +68,7 @@ export default function ConditionsOverview() {
             transition={{ delay: 0.1 }}
             className="font-display text-4xl sm:text-5xl md:text-6xl font-black text-surface-dark max-w-4xl mx-auto leading-tight"
           >
-            Conditions We <span className="text-brand-primary">Support</span>
+            Who We <span className="text-brand-primary">Support</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}

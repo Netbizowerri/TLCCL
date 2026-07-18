@@ -188,7 +188,7 @@ export default function Header() {
               onMouseLeave={() => setActiveDropdown(null)}
             >
               <button className="flex items-center gap-1 text-sm font-semibold text-text-soft hover:text-brand-primary py-2 transition-colors">
-                Conditions <ChevronDown className="h-4 w-4" />
+                Who We Support <ChevronDown className="h-4 w-4" />
               </button>
 
               <AnimatePresence>
@@ -201,7 +201,7 @@ export default function Header() {
                     className="absolute left-1/2 -translate-x-1/2 mt-1 w-[320px] bg-white border border-brand-muted rounded-3xl shadow-xl p-4"
                   >
                     <div className="text-xs font-bold text-brand-teal uppercase tracking-wider mb-2 px-3">
-                      Conditions We Support
+                      Who We Support
                     </div>
                     <ul className="space-y-1">
                       {conditions.map((item) => (
@@ -244,12 +244,7 @@ export default function Header() {
 
           {/* Action Buttons */}
           <div className="hidden lg:flex items-center gap-4">
-            <Link
-              to="/referral"
-              className="text-sm font-semibold text-brand-primary hover:text-brand-secondary border border-transparent hover:border-brand-muted px-4 py-2 rounded-xl transition-all"
-            >
-              Professional Referral
-            </Link>
+
             <Link
               to="/book"
               className="bg-brand-primary hover:bg-brand-primary/90 text-white text-sm font-bold px-5 py-2.5 rounded-2xl shadow-md shadow-brand-primary/10 hover:shadow-lg hover:shadow-brand-primary/20 hover:-translate-y-0.5 transition-all flex items-center gap-1.5"
@@ -354,7 +349,7 @@ export default function Header() {
                   onClick={() => toggleDropdown("mobile-conditions")}
                   className="w-full flex justify-between items-center font-bold text-base text-surface-dark hover:text-brand-primary py-1"
                 >
-                  Conditions We Support
+                  Who We Support
                   <ChevronDown
                     className={`h-5 w-5 transition-transform ${
                       activeDropdown === "mobile-conditions" ? "rotate-180" : ""
@@ -401,13 +396,7 @@ export default function Header() {
               </Link>
 
               <div className="pt-4 border-t border-brand-muted flex flex-col gap-3">
-                <Link
-                  to="/referral"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="w-full text-center border border-brand-muted text-brand-primary font-semibold py-2.5 rounded-2xl bg-brand-soft"
-                >
-                  Professional Referral
-                </Link>
+
                 <Link
                   to="/book"
                   onClick={() => setMobileMenuOpen(false)}

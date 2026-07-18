@@ -295,35 +295,7 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-t from-surface-dark/30 via-transparent to-transparent" />
                 </div>
 
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.7 }}
-                  className="absolute -left-3 sm:-left-8 top-8 bg-white rounded-2xl shadow-xl p-3.5 flex items-center gap-3 border border-brand-soft"
-                >
-                  <div className="h-10 w-10 rounded-xl bg-brand-soft text-brand-teal flex items-center justify-center shrink-0">
-                    <ShieldCheck className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <p className="text-xs font-black text-surface-dark leading-tight">Certified Specialists</p>
-                    <p className="text-[10px] text-text-soft font-semibold">BCBA · ASHA · WFOT</p>
-                  </div>
-                </motion.div>
 
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.9 }}
-                  className="absolute -right-3 sm:-right-6 bottom-10 bg-white rounded-2xl shadow-xl p-3.5 flex items-center gap-3 border border-brand-soft"
-                >
-                  <div className="h-10 w-10 rounded-xl bg-amber-50 text-brand-accent flex items-center justify-center shrink-0">
-                    <Heart className="h-5 w-5 fill-brand-accent" />
-                  </div>
-                  <div>
-                    <p className="text-xs font-black text-surface-dark leading-tight">500+ Families</p>
-                    <p className="text-[10px] text-text-soft font-semibold">Trusted & growing</p>
-                  </div>
-                </motion.div>
               </motion.div>
             </div>
           </div>
